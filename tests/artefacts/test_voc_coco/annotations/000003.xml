@@ -1,0 +1,26 @@
+<annotation>
+    <folder>annotations_sliced</folder>
+    <filename>000003.jpg</filename>
+    <path>D:\BijonGuha\Projects\object-detection\data\interim\fb5ae56a28114aad9ea3820581399e22\annotations_sliced\000003.jpg</path>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>800</width>
+        <height>800</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>coastal_litter</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>575</xmin>
+            <ymin>641</ymin>
+            <xmax>632</xmax>
+            <ymax>679</ymax>
+        </bndbox>
+    </object>
+</annotation>

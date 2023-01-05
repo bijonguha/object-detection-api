@@ -1,0 +1,8 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+  # Configuration parameters
+  labels_directory : ['data', 'processed','replace','dataset', 'labels']
+  classes_path : ['data', 'processed','replace','dataset']
+  err_file_path : ['data', 'processed','replace','dataset']
+...

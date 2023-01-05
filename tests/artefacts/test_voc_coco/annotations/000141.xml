@@ -1,0 +1,15 @@
+<annotation>
+    <folder>annotations_sliced</folder>
+    <filename>000141.jpg</filename>
+    <path>D:\BijonGuha\Projects\object-detection\data\interim\fb5ae56a28114aad9ea3820581399e22\annotations_sliced\000141.jpg</path>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>800</width>
+        <height>800</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+
+</annotation>

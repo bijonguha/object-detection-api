@@ -1,0 +1,12 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+  # Configuration parameters
+  positive_to_background_ratio : 1
+  # filepaths voc
+  image_target_directory : ['data', 'processed','replace','images_filtered']
+  annotation_target_directory : ['data', 'processed','replace','annotations_filtered']
+  # filepaths coco
+  coco_data_dir : ['data', 'interim','replace','images_sliced']
+  annotation_path : ['data', 'interim','replace']  
+...

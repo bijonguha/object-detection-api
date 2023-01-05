@@ -1,3 +1,7 @@
+# Application files
+.vscode/
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +131,31 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#yolov5 files-folder
+src/external_packages/yolov5/.dockerignore
+src/external_packages/yolov5/.gitattributes
+src/external_packages/yolov5/.github/
+src/external_packages/yolov5/.gitignore
+src/external_packages/yolov5/.pre-commit-config.yaml
+src/external_packages/yolov5/CONTRIBUTING.md
+src/external_packages/yolov5/Dockerfile
+src/external_packages/yolov5/LICENSE
+src/external_packages/yolov5/README.md
+src/external_packages/yolov5/__init__.py
+src/external_packages/yolov5/data/
+src/external_packages/yolov5/detect.py
+src/external_packages/yolov5/export.py
+src/external_packages/yolov5/hubconf.py
+src/external_packages/yolov5/models/
+src/external_packages/yolov5/requirements.txt
+src/external_packages/yolov5/setup.cfg
+src/external_packages/yolov5/train.py
+src/external_packages/yolov5/tutorial.ipynb
+src/external_packages/yolov5/utils/
+src/external_packages/yolov5/val.py
+src/services/voc_to_yolo.py
+src/external_packages/yolov5/setup.cfg
+
+# data folder
+data/

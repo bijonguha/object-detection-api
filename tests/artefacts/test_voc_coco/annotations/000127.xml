@@ -1,0 +1,59 @@
+<annotation>
+    <folder>annotations_sliced</folder>
+    <filename>000127.jpg</filename>
+    <path>D:\BijonGuha\Projects\object-detection\data\interim\fb5ae56a28114aad9ea3820581399e22\annotations_sliced\000127.jpg</path>
+    <source>
+        <database>Unknown</database>
+    </source>
+    <size>
+        <width>800</width>
+        <height>800</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>coastal_litter</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>710</xmin>
+            <ymin>48</ymin>
+            <xmax>741</xmax>
+            <ymax>76</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>coastal_litter</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>700</xmin>
+            <ymin>122</ymin>
+            <xmax>733</xmax>
+            <ymax>161</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>coastal_litter</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>576</xmin>
+            <ymin>287</ymin>
+            <xmax>610</xmax>
+            <ymax>309</ymax>
+        </bndbox>
+    </object>    <object>
+        <name>coastal_litter</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>192</xmin>
+            <ymin>687</ymin>
+            <xmax>226</xmax>
+            <ymax>724</ymax>
+        </bndbox>
+    </object>
+</annotation>

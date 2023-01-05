@@ -1,0 +1,17 @@
+# YAML Document starts with ---
+# Comments start with #
+---
+  # VOC Slice Configuration parameters
+  keep_partial_labels : True
+  ignore_empty_tiles : False 
+  save_before_after_map : True
+
+  # COCO Slice Configuration parameters
+  coco_data_dir : ['data', 'interim','replace','images_sliced']
+  annotation_path : ['data', 'interim','replace']
+  ignore_negative_samples : True
+
+  # filepaths
+  image_target_directory : ['data', 'interim','replace','images_sliced']
+  annotation_target_directory : ['data', 'interim','replace','annotations_sliced']
+...
