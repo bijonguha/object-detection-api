@@ -162,13 +162,13 @@ def filter_data_coco(u_id, jpg_data_dir, coco_path, ratio = 1,
     return[True, images_dump_dir, json_dump_path, len(filtered_images_names), len(combined_list)-len(filtered_images_names)]
 
 
-def filter_data(u_id, jpg_data_dir, anno_path, ratio = 1, 
+def filter_data(u_id, jpg_data_dir, anno_path, ratio, 
             config_path=settings.resample_slices_yaml, type = 'voc'):
     
     if type == 'voc':
-        return filter_data_voc(u_id, jpg_data_dir, anno_path, ratio = 1, 
+        return filter_data_voc(u_id, jpg_data_dir, anno_path, ratio, 
             config_path=settings.resample_slices_yaml)
     
     elif type == 'coco':
-        return filter_data_coco(u_id, jpg_data_dir, anno_path, ratio = 1, 
+        return filter_data_coco(u_id, jpg_data_dir, anno_path, ratio, 
             config_path=settings.resample_slices_yaml)
