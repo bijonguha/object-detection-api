@@ -12,7 +12,6 @@ numpy==1.21.6
 opencv_python_headless==4.7.0.68
 Pillow==10.0.0
 pycocotools==2.0.6
-pycocotools_windows==2.0.0.2
 pydantic==1.10.2
 PyYAML==6.0
 sahi==0.11.14
