@@ -1,0 +1,22 @@
+# Ignore any files or directories in the context root beginning with
+README*
+sonar*
+sample*
+
+# Ignore any files or directories at any level, including the context root, 
+**/.gitlab-ci.yml
+**/.gitignore
+**/.coverage.xml
+/tests
+/test_images
+/sample_images
+/data
+/models
+/notebooks
+/runs
+/logs
+
+.git
+.gitignore
+.sonar/
+.sonarlint/

@@ -4,6 +4,18 @@ This pipeline can be utilised for object detection usecases.
 
 ![FastAPI](tests/image_fapi.PNG)
 
+## Dataset
+### Coastal Litter
+1. https://siemensapc-my.sharepoint.com/:f:/g/personal/rishabh_balaiwar_siemens_com/EupGzSjWnNFOuCgpdm8PP9UBEVW081rwqSgUAahwXsblJw?e=ccPUR4
+2. https://siemensapc-my.sharepoint.com/:f:/g/personal/rishabh_balaiwar_siemens_com/EjTm0fmA4ahJsyCIZ4mYHPcB2ljxHyhmcG5CSpdL4gWH4w?e=k9znj0
+3. https://siemensapc-my.sharepoint.com/:f:/g/personal/vibhav_kulavmode_siemens_com/Ehjaks4asMlKrOTE-6xGtXABJhvC9z1aoaMy9jxJxfoMUg?e=kGH5yw
+
+### Unwetted Trucks
+1. https://siemensapc.sharepoint.com/:f:/t/Falcon-XAIteam/Ej89EANP7U9MgDTU8szKhAgBvQo28ZzguyM0KvI_Rf5NXQ?e=mNqbR0
+
+### Equiptments
+1. https://siemensapc.sharepoint.com/:f:/t/Falcon-XAIteam/EjZ90egcaTJGvXmL0B8JgCYB2KgIS-KbygxBiYBO3sIQbw?e=yrg4lF
+
 ## Current Features
 ### AI Features
 - [x] Image and Bbox slicing along with annotations
