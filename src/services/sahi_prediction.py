@@ -1,7 +1,6 @@
 import torch
-from sahi.model import Yolov5DetectionModel
-from sahi.utils.cv import read_image
-from sahi.predict import get_prediction, get_sliced_prediction
+from sahi import AutoDetectionModel
+from sahi.predict import get_sliced_prediction
 
 def predict_sahi(img, model_path, slice_height = 1500, slice_width=1500, overlap = 0.3,
                  device = 'auto', conf_thresh=0.3):
@@ -11,10 +10,11 @@ def predict_sahi(img, model_path, slice_height = 1500, slice_width=1500, overlap
     if device == 'auto':
         device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
-    detection_model = Yolov5DetectionModel(
+    detection_model = AutoDetectionModel.from_pretrained(
+        model_type='yolov5',
         model_path=yolov5_model_path,
         confidence_threshold=conf_thresh,
-        device=device
+        device=device, # or 'cuda:0'
     )
 
     result = get_sliced_prediction(

@@ -56,13 +56,15 @@ def coco_merge(
             output["images"].append(image)
 
         for annotation in data["annotations"]:
-            n_anns = len(output["annotations"])
-            annotation["id"] = n_anns
-            annotation["image_id"] = img_id_map[annotation["image_id"]]
-            annotation["category_id"] = cat_id_map[annotation["category_id"]]
+            try:
+                n_anns = len(output["annotations"])
+                annotation["id"] = n_anns
+                annotation["image_id"] = img_id_map[annotation["image_id"]]
+                annotation["category_id"] = cat_id_map[annotation["category_id"]]
 
-            output["annotations"].append(annotation)
-
+                output["annotations"].append(annotation)
+            except:
+                continue
     print(
         "Result: {} images, {} annotations".format(
             len(output["images"]), len(output["annotations"])
@@ -77,3 +79,9 @@ def coco_merge(
     print('Combined annotation generated at :', output_file)
     
     return [True, output_file]
+
+if __name__=='__main__':
+    inp_file =r"D:\UserData\z00490ds\OneDrive - Siemens AG\01. NEOM Environment\02. Pilot Development\Developer\AIML Use Cases\Stockpile use case\dust_cloud_utsav\dataset_270422\sliced_2048_0\filtered_ann\output.json"
+    another_inp_file=r"D:\UserData\z00490ds\OneDrive - Siemens AG\01. NEOM Environment\02. Pilot Development\Developer\AIML Use Cases\Stockpile use case\dust_cloud_utsav\dataset_270422\sliced_2048_0\filtered_ann\val_fold_5_sliced_2048_filtered.json"
+    coco_merge(inp_file, another_inp_file)
+    

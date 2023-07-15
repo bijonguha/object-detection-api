@@ -13,11 +13,11 @@ if str(ROOT) not in sys.path:
 
 from src.utils.utilities import make_directories
 
-img_dir = Path(r'D:\BijonGuha\Projects\object-detection\data\processed\180yolo_c270e14d130f45a1a9b9a1a391daf316\dataset\images').as_posix()
-anno_dir = Path(r'D:\BijonGuha\Projects\object-detection\data\processed\180yolo_c270e14d130f45a1a9b9a1a391daf316\dataset\labels').as_posix()
+img_dir = Path(r'D:\Intrepid\gaurav\yolo_meter\console_train\images').as_posix()
+anno_dir = Path(r'D:\Intrepid\gaurav\yolo_meter\console_train\labels').as_posix()
 extension_image = '.jpg'
 
-ratio = 0.20
+ratio = 0.10
 
 images = os.listdir(img_dir)
 annos = os.listdir(anno_dir)
@@ -38,7 +38,7 @@ train_anno_dir = os.path.join(anno_dir, 'train')
 test_anno_dir = os.path.join(anno_dir, 'val')
 
 dir_list = [train_img_dir, test_img_dir, train_anno_dir, test_anno_dir]
-make_directories(dir_list)
+[os.makedirs(d, exist_ok=True) for d in dir_list]
 
 print("Len train labels :", len(train))
 for tr in tqdm(train, desc='Training sets restructuring'):

@@ -12,7 +12,7 @@ from sahi.utils.file import save_json
 #|--coco.json
 
 def convert_to_coco(annotations_dir, images_dir, class_list, IMAGE_EXTENSION):
-    
+
     parent_dir = os.path.split(annotations_dir)[0]
     
     ann_folder_name = os.path.split(annotations_dir)[1]
