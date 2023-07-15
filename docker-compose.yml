@@ -1,0 +1,36 @@
+networks:
+    objdet_network:
+      driver: bridge
+
+services:
+  objectdetection-service:
+    container_name: od_service
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - APP_ENV=PROD
+    networks:
+      - objdet_network
+    volumes:
+      - type: bind
+        source: ./data
+        target: /app/data
+      - type: bind
+        source: ./logs
+        target: /app/logs
+      - type: bind
+        source: ./models
+        target: /app/models      
+      - type: bind
+        source: ./configs
+        target: /app/configs  
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
+

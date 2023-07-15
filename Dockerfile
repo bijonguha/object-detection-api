@@ -1,40 +1,27 @@
-FROM python:3.7.12-slim
+FROM nvidia/cuda:11.7.1-base-ubuntu20.04
 
-# Copy as early as possible so we can cache ...
-COPY requirements_cloud.txt .
+RUN apt-get -y update \
+    && apt-get install -y software-properties-common \
+    && apt-get -y update \
+    && add-apt-repository universe \
+    && apt-get -y update \
+    && apt-get -y install python3.8-dev python3.8-distutils python3.8-venv \
+    && apt-get -y install python3-pip
 
-# Install common libraries
-RUN apt-get update -qq \
- && apt-get install -y --no-install-recommends \
-    libpq-dev \
-    curl \
-    stunnel \
- && apt-get autoremove -y
-
-RUN apt-get -y install libzbar-dev
-
-# Install all required build libraries
-RUN apt-get update -qq \
- && apt-get install -y --no-install-recommends \
-    build-essential
-    
-RUN apt-get install libgl1-mesa-glx -y
-RUN apt-get install 'ffmpeg'\ 
-    'libsm6'\ 
-    'libxext6' -y
-
-# For the "failed call to cuInit" error
-ENV CUDA_VISIBLE_DEVICES 0
-
-# Make sure we have the latest pip version
+# RUN apt install python3.8-venv
+RUN python3 -m venv /home/venv
 RUN pip install -U pip
+ENV PATH="/home/venv/bin:$PATH"
+
 RUN apt install git -y
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements_cloud.txt
 RUN apt install -y sqlite3
 
-COPY . /
+COPY . /app
+
+WORKDIR /app
 
 RUN chmod a+x /start
 
