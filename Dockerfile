@@ -13,15 +13,16 @@ RUN python3 -m venv /home/venv
 RUN pip install -U pip
 ENV PATH="/home/venv/bin:$PATH"
 
-COPY . /app
-
-WORKDIR /app
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 RUN apt install -y sqlite3
 
-RUN chmod a+x /start
+COPY . /app
+WORKDIR /app
+
+RUN chmod a+x ./start
 
 EXPOSE 9092
 EXPOSE 8501
