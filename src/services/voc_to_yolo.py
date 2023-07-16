@@ -13,6 +13,14 @@ from xml.etree import ElementTree
 from tqdm import tqdm
 import yaml
 from yaml.loader import SafeLoader
+
+from pathlib import Path
+
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[2]  # project root directory
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))  # add ROOT to PATH
+
 from src.constants import Constants
 
 from configs.config import settings
