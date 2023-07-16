@@ -16,10 +16,22 @@ class SliceRequest(BaseModel):
     tile_overlap: Optional[float] = 0.20
     number_tiles : Optional[int] = 0
 
+class SliceVocRequest(BaseModel):
+    image_directory: str
+    annotation_directory: str
+    patch_size: Optional[int] = 1024
+    stride: Optional[int] = 512
+    min_object_size: Optional[int] = 250
+
 class SliceResponse(ResponseBase):
     image_path: Optional[str] = None
     annotation_path : Optional[str] = None
     coco_path : Optional[str] = None
+
+class SliceChecker(BaseModel):
+    image_directory: str
+    annotation_directory: str
+    output_directory: str
 
 class FilterRequest(BaseModel):
     image_directory: str

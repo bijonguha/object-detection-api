@@ -11,6 +11,8 @@ from yaml.loader import SafeLoader
 import image_bbox_slicer as ibs
 from sahi.slicing import slice_coco
 
+from src.services.voc_slicer import generate_image_patches
+
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[2]  # project root directory
 if str(ROOT) not in sys.path:
@@ -18,9 +20,9 @@ if str(ROOT) not in sys.path:
 
 from configs.config import settings
 
-def voc_slices(u_id, image_directory, annotation_directory, tile_size_width=1500,
-                     tile_size_height=1500, tile_overlap=0.20, number_tiles=0,
-                     config_path=settings.image_slices_yaml):
+def voc_slices(u_id, image_directory, annotation_directory,
+                patch_size, stride, min_object_size,
+                config_path=settings.image_slices_yaml):
     '''
     Function to create slices of image and bounding box annotation using
     slicing yaml file in configs
@@ -46,25 +48,13 @@ def voc_slices(u_id, image_directory, annotation_directory, tile_size_width=1500
         print("Invalid Annotation directory path passed")
         return[False,"Invalid Annotation directory path passed"]
 
-    if number_tiles > 0:
-        args = [number_tiles]
-    else:
-        args = [(tile_size_width, tile_size_height), tile_overlap ]
-
-    slicer = ibs.Slicer()
-    slicer.config_dirs(img_src=im_src, ann_src=an_src, 
-                    img_dst=im_dst, ann_dst=an_dst)
-    
-    slicer.keep_partial_labels = slice_config['keep_partial_labels']
-    slicer.ignore_empty_tiles = slice_config['ignore_empty_tiles']
-    slicer.save_before_after_map = slice_config['save_before_after_map']
-
     print("Process Started")
 
     try:
-        slicer.slice_by_size(*args)
+        generate_image_patches(im_src, an_src, patch_size, stride, min_object_size, im_dst, an_dst)
+        
     except Exception as e:
-        print(f'exception occured in slicing- {e}')
+        print(f'exception occured in voc slicing- {e}')
         return ([False, e])
 
     print("Process Successfully Completed")
@@ -72,6 +62,7 @@ def voc_slices(u_id, image_directory, annotation_directory, tile_size_width=1500
     print("Folder name generated : ", im_dst)
 
     return([True, im_dst, an_dst])
+
 
 def coco_slicing(u_id, image_directory, annotation_file_path, tile_size_width=1500,
                         tile_size_height=1500, tile_overlap=0.20,
@@ -128,8 +119,8 @@ from sahi.slicing import slice_coco
 
 if __name__ == '__main__':
 
-    image_directory = r'D:\BijonGuha\Projects\object-detection\tests\artefacts\test_voc_coco\images'
-    annotation_directory = r'D:\BijonGuha\Projects\object-detection\tests\artefacts\test_voc_coco\annotations'
-    annotation_path = r'D:\BijonGuha\Projects\object-detection\tests\artefacts\test_voc_coco\coco.json'
+    image_directory = r'tests\artefacts\test_voc_coco\images'
+    annotation_directory = r'tests\artefacts\test_voc_coco\annotations'
+    annotation_path = r'tests\artefacts\test_voc_coco\coco.json'
     import uuid
     create_slices(uuid.uuid4(), image_directory, annotation_path, type='coco')

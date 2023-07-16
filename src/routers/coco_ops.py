@@ -39,7 +39,7 @@ class CocoMergeRequest(BaseModel):
     input_add : FilePath
 
 @router.post("/voc_to_coco/", 
-            tags=["COCO Data Ops"],
+            tags=["Annotations Ops"],
             summary= "Convert VOC dataset into COCO format",
             description="Dataset\n--images\n--annotations",
             response_model=CocoOpsResponse,
@@ -66,7 +66,7 @@ async def voc2coco(func_args: CocoToVocRequest):
         return fail_msg
 
 @router.post("/coco_filename_correction/", 
-            tags=["COCO Data Ops"],
+            tags=["Annotations Ops"],
             summary= "Check or Correct COCO annotation filenames",
             response_model=CocoOpsResponse,
             response_model_exclude_none=True)
@@ -91,7 +91,7 @@ async def voc2coco(func_args: CocoOpsRequest):
         return fail_msg
 
 @router.post("/generate_labels_txt/", 
-            tags=["COCO Data Ops"],
+            tags=["Annotations Ops"],
             summary= "Generate labels.txt for training",
             response_model=CocoOpsResponse,
             response_model_exclude_none=True)
@@ -116,7 +116,7 @@ async def voc2coco(func_args: CocoOpsRequest):
         return fail_msg
 
 @router.post("/create_coco_train_test_split/", 
-            tags=["COCO Data Ops"],
+            tags=["Annotations Ops"],
             summary= "Create two coco json for training and testing",
             response_model=CocoTrainTestResponse,
             response_model_exclude_none=True)
@@ -143,7 +143,7 @@ async def voc2coco(func_args: CocoTrainTestRequest):
         return fail_msg
 
 @router.post("/merge_coco_annotation/", 
-            tags=["COCO Data Ops"],
+            tags=["Annotations Ops"],
             summary= "Create combined coco from two others",
             response_model=CocoOpsResponse,
             response_model_exclude_none=True)

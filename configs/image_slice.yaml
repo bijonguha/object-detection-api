@@ -12,6 +12,6 @@
   ignore_negative_samples : True
 
   # filepaths
-  image_target_directory : ['data', 'interim','replace','images_sliced']
-  annotation_target_directory : ['data', 'interim','replace','annotations_sliced']
+  image_target_directory : ['data', 'processed','replace','images_sliced']
+  annotation_target_directory : ['data', 'processed','replace','annotations_sliced']
 ...
